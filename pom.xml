@@ -46,6 +46,7 @@
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <phantomjsdriver.version>1.4.1</phantomjsdriver.version>
         <testng.version>6.11</testng.version>
+        <log4j.version>1.2.17</log4j.version>
         <!--Plugin Versions-->
         <driver-binary-downloader-maven-plugin.version>1.0.11</driver-binary-downloader-maven-plugin.version>
         <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
@@ -105,6 +106,11 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
     </dependencies>
 
     <profiles>

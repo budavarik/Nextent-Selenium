@@ -12,6 +12,9 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger; 
+
 import com.selenium.tests.LoginPage;
 
 import java.util.ArrayList;
@@ -21,6 +24,10 @@ import java.util.concurrent.TimeUnit;
 
 public class NextentTelekomIT extends DriverBase {
 
+	//http://www.jtechlog.hu/artifacts/log4j.pdf
+	
+    protected Logger logger = LogManager.getLogger(getClass()); 
+    
     @Test
     public void telekomPutMtid() throws Exception {
         WebDriver driver = getDriver();
@@ -34,7 +41,7 @@ public class NextentTelekomIT extends DriverBase {
         
         WebElement get_id = driver.findElement(By.id("tf-logonIdX")); 
         get_id.clear();
-        get_id.sendKeys("06707730089");
+        get_id.sendKeys("067077300");
         
         WebElement get_pass = driver.findElement(By.id("tf-password1")); 
         get_pass.clear();
@@ -43,10 +50,10 @@ public class NextentTelekomIT extends DriverBase {
         WebElement logged_in = driver.findElement(By.id("loggedin")); 
         
         WebElement login_submit = driver.findElement(By.id("submitLogin"));
-        
+                
         login_submit.click();
-        
-        System.out.println("After: " + driver.getTitle());
+
+        logger.info(("After: " + driver.getTitle()));
         
         System.out.println(driver.getCurrentUrl());
     	
